@@ -86,7 +86,8 @@ const defaultValues: Schema = {
     },
   ],
   settings: {
-    font: "courier",
+    fontFamily: "courier",
+    fontSize: "12",
   },
 };
 
@@ -206,39 +207,67 @@ export function Resume() {
                       personalize your template.
                     </DialogDescription>
                     <Form {...methods}>
-                      <FormField
-                        control={methods.control}
-                        name="settings.font"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Font</FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select which font to use" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="courier">Courier</SelectItem>
-                                <SelectItem value="helvetica">
-                                  Helvetica
-                                </SelectItem>
-                                <SelectItem value="times-roman">
-                                  Times Roman
-                                </SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                      <div className="flex gap-2 sm:flex-row flex-col">
+                        <FormField
+                          control={methods.control}
+                          name="settings.fontFamily"
+                          render={({ field }) => (
+                            <FormItem className="flex-1">
+                              <FormLabel>Font Family</FormLabel>
+                              <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                              >
+                                <FormControl>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select which font family to use" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  <SelectItem value="courier">
+                                    Courier
+                                  </SelectItem>
+                                  <SelectItem value="helvetica">
+                                    Helvetica
+                                  </SelectItem>
+                                  <SelectItem value="times-roman">
+                                    Times Roman
+                                  </SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={methods.control}
+                          name="settings.fontSize"
+                          render={({ field }) => (
+                            <FormItem className="flex-1">
+                              <FormLabel>Font Size</FormLabel>
+                              <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                              >
+                                <FormControl>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select which font size to use" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  <SelectItem value="10">10</SelectItem>
+                                  <SelectItem value="12">12</SelectItem>
+                                  <SelectItem value="14">14</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
                     </Form>
                   </DialogHeader>
-
-                  <DialogFooter></DialogFooter>
+                  <DialogFooter />
                 </DialogContent>
               </Dialog>
 

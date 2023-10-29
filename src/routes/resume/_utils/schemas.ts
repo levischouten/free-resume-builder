@@ -125,7 +125,11 @@ export const schema = z.object({
     ])
   ),
   settings: z.object({
-    font: z.enum(["courier", "helvetica", "times-roman"]),
+    fontFamily: z
+      .enum(["courier", "helvetica", "times-roman"])
+      .optional()
+      .default("courier"),
+    fontSize: z.enum(["10", "12", "14"]).optional().default("12"),
   }),
 });
 

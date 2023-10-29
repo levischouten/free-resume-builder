@@ -176,7 +176,7 @@ function PersonalDetails(props: SectionProps) {
 
       <Collapsible>
         <CollapsibleTrigger asChild>
-          <Button variant="ghost" size="sm" className="space-x-2">
+          <Button variant="outline" size="sm" className="space-x-2">
             <span>Edit additional details</span>
             <ChevronsUpDownIcon className="h-4 w-4" />
           </Button>
@@ -345,9 +345,9 @@ function Skills(props: SectionProps) {
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      className="flex flex-1 flex-col h-auto items-start"
+                      className="flex flex-1 flex-col h-auto items-start min-w-0"
                     >
-                      <span>
+                      <span className="min-w-0 text-ellipsis overflow-hidden whitespace-nowrap block max-w-full">
                         {methods.watch(
                           `sections.${props.index}.skills.${index}.name`
                         ) || "(Not specified)"}
@@ -474,11 +474,12 @@ function Skills(props: SectionProps) {
                         </FormItem>
                       )}
                     />
+                    <DialogFooter />
                   </DialogContent>
                 </Dialog>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="icon" variant="ghost" type="button">
+                    <Button size="icon" variant="outline" type="button">
                       <MoreVerticalIcon className="w-4 h-4" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -521,9 +522,9 @@ function Skills(props: SectionProps) {
       )}
 
       <Button
-        variant="ghost"
+        variant="outline"
         type="button"
-        className="justify-start"
+        className="self-start"
         onClick={createSkill}
       >
         <PlusIcon className="w-4 h-4 mr-2" /> Add more skills
@@ -606,9 +607,9 @@ function Educations(props: SectionProps) {
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      className="flex flex-1 flex-col h-auto items-start"
+                      className="flex flex-1 flex-col h-auto items-start min-w-0"
                     >
-                      <span>
+                      <span className="min-w-0 text-ellipsis overflow-hidden whitespace-nowrap block max-w-full">
                         {degree(index) || "(Not specified)"}&nbsp;
                         {degree(index) &&
                           school(index) &&
@@ -621,7 +622,7 @@ function Educations(props: SectionProps) {
                       </span>
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="">
+                  <DialogContent>
                     <DialogHeader>
                       <DialogTitle>Edit education</DialogTitle>
                       <DialogDescription>
@@ -703,11 +704,12 @@ function Educations(props: SectionProps) {
                         </FormItem>
                       )}
                     />
+                    <DialogFooter />
                   </DialogContent>
                 </Dialog>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="icon" variant="ghost" type="button">
+                    <Button size="icon" variant="outline" type="button">
                       <MoreVerticalIcon className="w-4 h-4" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -750,10 +752,10 @@ function Educations(props: SectionProps) {
       )}
 
       <Button
-        variant="ghost"
+        variant="outline"
         type="button"
         onClick={createEducation}
-        className="justify-start"
+        className="self-start"
       >
         <PlusIcon className="w-4 h-4 mr-2" /> Add more educations
       </Button>
@@ -838,9 +840,9 @@ function EmploymentHistory(props: SectionProps) {
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      className="flex flex-1 flex-col h-auto items-start"
+                      className="flex flex-1 flex-col h-auto items-start min-w-0"
                     >
-                      <span>
+                      <span className="min-w-0 text-ellipsis overflow-hidden whitespace-nowrap block max-w-full">
                         {jobTitle(index) || "(Not specified)"}&nbsp;
                         {jobTitle(index) &&
                           company(index) &&
@@ -935,11 +937,12 @@ function EmploymentHistory(props: SectionProps) {
                         </FormItem>
                       )}
                     />
+                    <DialogFooter />
                   </DialogContent>
                 </Dialog>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="icon" variant="ghost" type="button">
+                    <Button size="icon" variant="outline" type="button">
                       <MoreVerticalIcon className="w-4 h-4" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -982,10 +985,10 @@ function EmploymentHistory(props: SectionProps) {
       )}
 
       <Button
-        variant="ghost"
+        variant="outline"
         type="button"
         onClick={createEmployment}
-        className="justify-start"
+        className="self-start"
       >
         <PlusIcon className="w-4 h-4 mr-2" /> Add more employments
       </Button>
@@ -1039,6 +1042,19 @@ function Languages(props: SectionProps) {
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size="icon" variant="outline">
+                <MoreVerticalIcon className="w-4 h-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Team</DropdownMenuItem>
+              <DropdownMenuItem>Subscription</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         <p className="text-sm text-muted-foreground">
           List the languages you are proficient in, both spoken and written.
@@ -1055,9 +1071,9 @@ function Languages(props: SectionProps) {
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      className="flex flex-1 flex-col h-auto items-start"
+                      className="flex flex-1 flex-col h-auto items-start min-w-0"
                     >
-                      <span>
+                      <span className="min-w-0 text-ellipsis overflow-hidden whitespace-nowrap block max-w-full">
                         {methods.watch(
                           `sections.${props.index}.languages.${index}.name`
                         ) || "(Not specified)"}
@@ -1126,11 +1142,12 @@ function Languages(props: SectionProps) {
                         </FormItem>
                       )}
                     />
+                    <DialogFooter />
                   </DialogContent>
                 </Dialog>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="icon" variant="ghost" type="button">
+                    <Button size="icon" variant="outline" type="button">
                       <MoreVerticalIcon className="w-4 h-4" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -1173,9 +1190,9 @@ function Languages(props: SectionProps) {
       )}
 
       <Button
-        variant="ghost"
+        variant="outline"
         type="button"
-        className="justify-start"
+        className="self-start"
         onClick={createLanguage}
       >
         <PlusIcon className="w-4 h-4 mr-2" /> Add more languages
@@ -1198,9 +1215,9 @@ export default function ResumeForm(props: ResumeFormProps) {
 
   return (
     <div className="px-6 py-8 sm:px-12 flex flex-col">
-      <div className="self-end">
+      <div className="justify-end flex gap-2">
         <ImportJSON />
-        <Dialog defaultOpen={false}>
+        <Dialog defaultOpen>
           <DialogTrigger asChild>
             <Button variant="ghost" size="icon">
               <HelpCircleIcon className="w-5 h-5" />
@@ -1222,6 +1239,8 @@ export default function ResumeForm(props: ResumeFormProps) {
               <a
                 className="text-blue-500 underline"
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Local storage
               </a>{" "}
